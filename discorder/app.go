@@ -75,7 +75,7 @@ func NewApp(options *AppOptions) (*App, error) {
 
 	configDir, err := GetCreateConfigDir()
 	if err != nil {
-		log.Println("Failed getting proper config dirs, falling back to current directory")
+		log.Println("Failed getting proper config dirs, falling back to current directory.")
 		configDir = ""
 	}
 
@@ -199,7 +199,7 @@ func (app *App) Run() {
 	// Some initialization
 	app.Lock()
 	if app.running {
-		log.Println("Tried to run app while already running")
+		log.Println("Tried to run app while already running.")
 		app.Unlock()
 		return
 	}
@@ -300,7 +300,7 @@ func (app *App) RunCommand(command Command, args Arguments) {
 }
 
 func (app *App) PrintWelcome() {
-	log.Println("You are using Discorder V" + VERSION + "! If you stumble upon any issues or bugs then please let me know!\n(Press ctrl-o For help)")
+	log.Println("You are using Discorder v" + VERSION + "! If you stumble upon any issues or bugs please help us out by reporting them!\n(Press Ctrl-O for help.)")
 }
 
 func (app *App) shutdown() {

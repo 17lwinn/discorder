@@ -129,7 +129,7 @@ func (nm *NotificationsManager) HandleAck(a *discordgo.MessageAck) {
 	channel, err := state.Channel(rs.ID)
 	state.Lock()
 	if err != nil {
-		log.Println("Failed getting channel in HandleAck... bad")
+		log.Println("Failed getting channel in HandleAck.")
 		return
 	}
 

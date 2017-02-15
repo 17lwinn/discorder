@@ -208,8 +208,8 @@ var SimpleCommands = []Command{
 		Args: []*ArgumentDef{
 			{Name: "last_yours", Description: "If true deletes last message you sent", Datatype: ui.DataTypeBool},
 			{Name: "last_any", Description: "If true deletes last message anyone sent", Datatype: ui.DataTypeBool},
-			{Name: "message", Description: "Specify a message id", Datatype: ui.DataTypeString, Helper: &MessageArgumentHelper{}},
-			{Name: "channel", Description: "Specify a channel id", Datatype: ui.DataTypeString, Helper: &ServerChannelArgumentHelper{Channel: true}},
+			{Name: "message", Description: "Specify a message ID", Datatype: ui.DataTypeString, Helper: &MessageArgumentHelper{}},
+			{Name: "channel", Description: "Specify a channel ID", Datatype: ui.DataTypeString, Helper: &ServerChannelArgumentHelper{Channel: true}},
 		},
 		ArgCombinations: [][]string{{"last_yours"}, {"last_any"}, {"message", "channel"}},
 		RunFunc: func(app *App, args Arguments) {
@@ -582,7 +582,7 @@ var SimpleCommands = []Command{
 						}
 					}
 				}
-				log.Println("No recent links found :'(")
+				log.Println("No recent links found.(")
 			}
 		},
 	},

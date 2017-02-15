@@ -89,7 +89,7 @@ func (im *InputManager) PollEvents() {
 		select {
 		case wg := <-im.stop:
 			wg.Done()
-			log.Println("Event polling stopped")
+			log.Println("Event polling stopped.")
 			return
 		default:
 			break

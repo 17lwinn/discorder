@@ -7,7 +7,7 @@ import (
 )
 
 func OpenLoginWindow(app *App) *CommandWindow {
-	cmdWindow := NewCommandWindow(app, 5, nil, "Because of discord api restrictions i can not add 2 factor authentication, they made it very clear that only official clients can use that api endpoint\n\nTo grab a token from the official client, open the developer tools with 'ctrl-i' and enter this into the console\n'localStorage.getItem(\"token\")'\nThen copy the token without the quotes\n")
+	cmdWindow := NewCommandWindow(app, 5, nil, "Because of Discord API restrictions Discorder does not support 2 Factor Authentication. Discord has made it very clear that only official clients can use that API endpoint.\n\nTo grab a token from the official client, open Developer Tools with Ctrl-I (Ctrl-Alt-I on Mac), click the Application tab and navigate to the Local Storage section, and find 'token' in the list. Copy the token without quotes below.\n")
 	cmdWindow.menuWindow.SearchInput.SetActive(false)
 	cmdWindow.commands = LoginCommands
 	cmdWindow.categories = []*CommandCategory{}
@@ -26,10 +26,10 @@ var LoginCommands = []Command{
 		RunFunc: func(app *App, args Arguments) {
 			token, _ := args.String("token")
 			if token == "" {
-				log.Println("No token provided")
+				log.Println("No token provided.")
 				return
 			} else {
-				log.Println("Trying to log in using a token, If it gets stuck here either the api is having problems or the token is invalid")
+				log.Println("Trying to log in using a token. If this takes too long, either the API is having problems or the token is invalid.")
 				err := app.Login("", "", token)
 				if err != nil {
 					log.Println("Failed logging in with token:", err)
@@ -89,7 +89,7 @@ func NewWaitingForLogin(app *App, layer int) *WaitingForLogin {
 
 	text := ui.NewText()
 
-	text.Text = "Logging in...\n\nIf you logged in by token and this is taking a long time either discord is having api problems or the token is invalid, reset the token using the -r switch"
+	text.Text = "Logging in...\n\nIf you logged in by token and this is taking a long time, either Discord is having API problems or the token is invalid. Reset the token using the -r switch."
 	app.ApplyThemeToText(text, "text_window_normal")
 	window.Transform.AddChildren(text)
 	text.Transform.AnchorMax = common.NewVector2I(1, 1)

@@ -27,7 +27,7 @@ First we unbind the CtrlS key to "nop" (No operation), since user binds override
 {"key": "CtrlC-d", "command": "delete_message", "args":{"last_yours": true}}
 ```
 
-Here we have a key sequence, doing CtrlC and then d will delete our last message
+Here we have a key sequence, doing Ctrl+C then D will delete our last message.
 
 ### Open the execute window
 

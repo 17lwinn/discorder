@@ -11,7 +11,7 @@ func (app *App) Ready(s *discordgo.Session, r *discordgo.Ready) {
 	app.Lock()
 	defer app.Unlock()
 
-	log.Println("Received ready from discord!")
+	log.Println("Received ready from Discord!")
 
 	app.settings = r.Settings
 	app.guildSettings = r.UserGuildSettings
