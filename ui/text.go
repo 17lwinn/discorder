@@ -218,7 +218,7 @@ func StrSplit(s string, width int) (split, rest string) {
 func RuneByPhysPosition(s string, runePos int) (rune, int) {
 	sLen := runewidth.StringWidth(s)
 	if sLen <= runePos || runePos < 0 {
-		panic("runePos is out of bounds")
+		panic("runePos is out of bounds.")
 	}
 
 	i := 0

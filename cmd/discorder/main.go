@@ -47,14 +47,14 @@ func main() {
 
 	app, err := discorder.NewApp(options)
 	if err != nil {
-		log.Println("Error setting up discorder :(", err)
+		log.Println("Error setting up discorder.", err)
 		return
 	}
 	app.Run()
 
 	discorder.StopLogger()
 
-	fmt.Println("bye :'(.....")
+	fmt.Println("Bye!")
 }
 
 func RunPProf() {

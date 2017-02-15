@@ -78,7 +78,7 @@ func (cew *CommandExecWindow) RunPreHelper(helperArg string) {
 	}
 
 	if arg == nil {
-		log.Println("could not find arg", helperArg)
+		log.Println("Could not find argument", helperArg)
 		return
 	} else if arg.Helper == nil {
 		log.Println("Argument has no helper", helperArg)

@@ -70,7 +70,7 @@ func LoadOrCreateConfig(path string) (*Config, error) {
 		return &decoded, err
 	}
 
-	log.Println("Failed loading config, creating new one")
+	log.Println("Failed loading config, creating a new one.")
 	c := &Config{}
 	err = c.Save(path)
 	return c, err
@@ -198,7 +198,7 @@ func homeDirUnix() (string, error) {
 
 	result := strings.TrimSpace(stdout.String())
 	if result == "" {
-		return "", errors.New("blank output when reading home directory")
+		return "", errors.New("Blank output when reading home directory.")
 	}
 
 	return result, nil

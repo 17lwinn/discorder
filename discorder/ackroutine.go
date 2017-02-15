@@ -41,7 +41,7 @@ func (a *AckRoutine) Run() {
 					found = true
 					parsed, err := v.Timestamp.Parse()
 					if err != nil {
-						log.Println("Error parsing timestamp", err)
+						log.Println("Error parsing timestamp.", err)
 					}
 					if ts.After(parsed) {
 						curAckBuffer[k] = m
@@ -55,7 +55,7 @@ func (a *AckRoutine) Run() {
 		case wg := <-a.stop:
 			ticker.Stop()
 			wg.Done()
-			log.Println("Ackroutine shut down")
+			log.Println("Ackroutine shut down.")
 			return
 		case <-ticker.C:
 			for _, v := range curAckBuffer {

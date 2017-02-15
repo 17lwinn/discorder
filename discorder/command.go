@@ -278,12 +278,12 @@ func (k KeyBind) RunHelper(app *App, index int, cmd Command) {
 	}
 
 	if arg == nil {
-		log.Println("Could not run helper for", k.Helpers[index], "; Argument not found")
+		log.Println("Could not run helper for", k.Helpers[index], "; argument not found.")
 		return
 	}
 
 	if arg.Helper == nil {
-		log.Println("Could not run helper for", k.Helpers[index], "; No helper for argument")
+		log.Println("Could not run helper for", k.Helpers[index], "; no helper for argument.")
 		return
 	}
 

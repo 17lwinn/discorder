@@ -82,7 +82,7 @@ func (t *TypingRoutine) Run() {
 		case wg := <-t.stop:
 			ticker.Stop()
 			wg.Done()
-			log.Println("Typing routine shut down")
+			log.Println("Typing routine shut down.")
 			return
 		}
 	}

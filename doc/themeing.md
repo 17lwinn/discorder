@@ -1,16 +1,16 @@
 # Themeing
 
-Themes are located in a themes folder in your discorder configuration dir ( `~/.config/discorder` on unix, `%APPDATA%/discorder` on windows) 
+Themes are located in a themes folder in your discorder configuration dir ( `~/.config/discorder` on Unix, `%APPDATA%/discorder` on Windows).
 
-To pick a theme you can use the theme selection menu or specify the theme in the discorder.json file manually, in your themes folder there is also a theme called default which changes to have no effect as it's built into discorder
+To pick a theme you can use the theme selection menu or specify the theme in your `discorder.json` file manually. In your themes folder there is also the theme `default`, which is the default theme.
 
-There's also an argument related to themes:
+To force a theme:
 
-`-t "path/to/theme.json"`: Forces said theme
+`-t "path/to/theme.json"`: Forces use of the given theme
 
 ### Theme file
 
-An example theme: 
+An example theme:
 
 ```json
 {
@@ -29,23 +29,23 @@ An example theme:
 }
 ```
 
-This works the same way as keybinds by overriding the default theme, so fields not present here will be set to the defaults
+This works the same way as keybinds by overriding the default theme, so fields not present here will be set to defaults.
 
-The color mode specified the color mode the theme utilizes, beware that some terminals don't support certain color modes
+The color mode specified the color mode the theme utilize. Note that some terminals don't support certain color modes.
 
 
 ### Colors
 
 #### Modes
 
-0 - utputNormal
+0 - OutputNormal
 1 - Output256
 2 - Output216
 3 - OutputGrayscale
 
 In colormode normal you can specify the colors as strings if you want ("red" for 2 for example).
 
-#### Colors (In colormode normal): 
+#### Colors (In colormode normal):
 
 0 - Default
 1 - Black
@@ -63,6 +63,6 @@ In colormode normal you can specify the colors as strings if you want ("red" for
  - underline
  - reverse
 
-Combining colors with bold will give a brighter color
+Combining colors with bold will give a brighter color if you have enabled it in your terminal profile settings.
 
-For colors in other modes see http://misc.flogisoft.com/bash/tip_colors_and_formatting
+For colors in other modes see http://misc.flogisoft.com/bash/tip_colors_and_formatting.

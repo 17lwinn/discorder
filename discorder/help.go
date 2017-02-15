@@ -8,11 +8,11 @@ import (
 
 var HelpContent = []string{
 	"Keyboard shortcuts:",
-	"Look in your discorder.json file in either ~/.config/discorder or %%appdata%/discorder if you're on windows",
-	"\n\nIf all private channels are selected, it will go into a All-Private\nmode meaning new messages from people you haven't talked to before\nwill also show up",
+	"Look in your discorder.json file in either ~/.config/discorder or %%appdata%/discorder if you're on Windows.",
+	"\n\nIf all private channels are selected, Discorder will go into All-Private\nmode, in which new messages from people you haven't talked to before\nwill also show up.",
 	"--------------",
 	"You are using Discorder version " + VERSION,
-	"This is still in very early development, please report any bugs you find here",
+	"Discorder is still in very early development, please report any bugs you find.",
 	"https://github.com/jonas747/discorder",
 }
 
@@ -30,7 +30,7 @@ func NewHelpWindow(app *App) *HelpWindow {
 
 	window := ui.NewWindow(app.ViewManager.UIManager)
 	window.Title = "Help"
-	window.Footer = "Hmmm - Mr Smilery"
+	window.Footer = "Help"
 	window.Transform.AnchorMax = common.NewVector2F(1, 1)
 	window.Layer = 10
 

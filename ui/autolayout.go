@@ -30,7 +30,7 @@ func (a *AutoLayoutContainer) BuildLayout() {
 	rect := a.Transform.GetRect()
 
 	required := float32(0)
-	numDynammic := 0
+	numDynamic := 0
 	elements := make([]LayoutElement, 0)
 	// Get number of dynamic elements and calulate leftover space for them
 	RunFuncCondTraverse(a, func(e Entity) bool {
@@ -52,7 +52,7 @@ func (a *AutoLayoutContainer) BuildLayout() {
 		requiredSize := cast.GetRequiredSize()
 		dynamic := cast.IsLayoutDynamic()
 		if dynamic {
-			numDynammic++
+			numDynamic++
 		}
 
 		if a.LayoutType == LayoutTypeVertical {
@@ -80,7 +80,7 @@ func (a *AutoLayoutContainer) BuildLayout() {
 		spaceLeft = rect.W - required
 	}
 
-	spacePerDynamic := spaceLeft / float32(numDynammic)
+	spacePerDynamic := spaceLeft / float32(numDynamic)
 
 	counter := float32(0)
 	// Apply

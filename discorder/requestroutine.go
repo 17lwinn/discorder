@@ -51,7 +51,7 @@ func (hq *HistoryRequest) Do(finished chan error) {
 	defer func() {
 		hq.App.Lock()
 		if hq.App.options.DebugEnabled {
-			log.Println("History processing complete")
+			log.Println("History processing complete.")
 		}
 		hq.App.Unlock()
 
@@ -220,7 +220,7 @@ func (rr *RequestRoutine) Run() {
 			}
 		case wg := <-rr.stop:
 			wg.Done()
-			log.Println("Request routine shut down")
+			log.Println("Request routine shut down.")
 			return
 		}
 	}
@@ -251,7 +251,7 @@ func (rr *RequestRoutine) addRequest(req Request) {
 	for e := rr.queue.Front(); e != nil; e = e.Next() {
 		cast, ok := e.Value.(Request)
 		if !ok {
-			log.Println("Something is very wrong, pleas nag me (jonas747) about this")
+			log.Println("Something is very wrong, please open an issue about this on GitHub.")
 			continue // TODO: Remove it..
 		}
 		if req.CheckDuplicate(cast) {

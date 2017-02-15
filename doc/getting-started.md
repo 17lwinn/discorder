@@ -1,6 +1,6 @@
 # Getting started with discorder
 
-Discorder is a interactive command line client for discord, this file will help you get started with discorder
+Discorder is a interactive command line client for discord. This file will help you get started with discorder.
 
 ### Downloading and running
 

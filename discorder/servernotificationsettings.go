@@ -95,7 +95,7 @@ func (s *ServerNotificationSettingsCommand) GetArgs(curArgs Arguments) []*Argume
 
 	args = append(args, &ArgumentDef{
 		Name:        "mute_server",
-		Description: "Mute the server, Muting a server prevents unread indicators and notifications from appearing unless you are mentioned.",
+		Description: "Mute the server, Muting a server hides notifications unless you are mentioned.",
 		Datatype:    ui.DataTypeBool,
 		CurVal:      strconv.FormatBool(settings.Muted),
 	}, &ArgumentDef{

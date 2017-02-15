@@ -3,7 +3,6 @@ package discorder
 import (
 	"fmt"
 	"github.com/jonas747/discorder/common"
-	//"github.com/jonas747/discorder/common"
 	"github.com/jonas747/discorder/ui"
 	"github.com/jonas747/discordgo"
 	"log"
@@ -74,7 +73,7 @@ func (ssw *ServerSelectWindow) GenMenu() {
 	defer state.RUnlock()
 
 	if len(state.Guilds) < 1 {
-		log.Println("No guilds, probably starting up still...")
+		log.Println("No guilds, probably starting up still.")
 		return
 	}
 

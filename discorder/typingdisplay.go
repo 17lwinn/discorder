@@ -5,7 +5,7 @@ import (
 	"github.com/jonas747/discorder/ui"
 )
 
-// Shows whos typing
+// Shows who's typing
 type TypingDisplay struct {
 	*ui.BaseEntity
 

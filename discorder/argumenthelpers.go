@@ -124,7 +124,7 @@ func (t *ThemeCommandWindow) Run(app *App, layer int) {
 			return
 		}
 		if item.UserData == nil {
-			log.Println("This theme hasn't been parsed yet, check log for errors")
+			log.Println("This theme hasn't been parsed yet, check log for errors.")
 			return
 		}
 		theme, ok := item.UserData.(*Theme)
@@ -141,14 +141,14 @@ func (t *ThemeCommandWindow) Run(app *App, layer int) {
 func (t *ThemeCommandWindow) ParseThemeAndApply(app *App, path string, item *ui.MenuItem) {
 	file, err := ioutil.ReadFile(path)
 	if err != nil {
-		log.Println("Failed reading theme file", path, err)
+		log.Println("Failed reading theme file.", path, err)
 		return
 	}
 
 	var theme *Theme
 	err = json.Unmarshal(file, &theme)
 	if err != nil {
-		log.Println("Failed decoding theme json", path, err)
+		log.Println("Failed decoding theme json.", path, err)
 		return
 	}
 
