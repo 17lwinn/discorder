@@ -69,7 +69,7 @@ func (hq *HistoryRequest) Do(finished chan error) {
 	}
 
 	// func (s *Session) ChannelMessages(channelID string, limit int, beforeID, afterID string) (st []*Message, err error)
-	resp, err := hq.App.session.ChannelMessages(hq.ChannelID, hq.Limit, hq.BeforeID, hq.AfterID)
+	resp, err := hq.App.session.ChannelMessages(hq.ChannelID, hq.Limit, hq.BeforeID, hq.AfterID, "")
 	if err != nil {
 		//log.Println("History error: ", err)
 		return
