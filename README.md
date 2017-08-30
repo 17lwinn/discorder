@@ -6,7 +6,7 @@
 
 Discorder is an interactive command line Discord client.
 
-Discord server: https://discord.gg/0vYlUK2XBKlmxGrX
+Discord server: https://discord.gg/0vYlUK2XBKldPSMY
 
 Join for updates, to suggest stuff, complain about stuff, or just talk about stuff.
 
