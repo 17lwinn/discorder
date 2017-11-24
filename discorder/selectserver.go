@@ -90,7 +90,7 @@ func (ssw *ServerSelectWindow) GenMenu() {
 
 		// Generate chanel options
 		for _, channel := range guild.Channels {
-			if channel.Type != "text" {
+			if channel.Type != discordgo.ChannelTypeGuildText {
 				continue
 			}
 			marked := false
@@ -214,7 +214,7 @@ OUTER:
 
 	element.Marked = toggleTo
 	for _, v := range guild.Channels {
-		if v.Type != "text" && !v.IsPrivate {
+		if !(v.Type == discordgo.ChannelTypeGuildText || v.Type == discordgo.ChannelTypeDM || v.Type == discordgo.ChannelTypeGroupDM) {
 			continue
 		}
 
@@ -247,11 +247,11 @@ func (ssw *ServerSelectWindow) ToggleChannel(channel *discordgo.Channel, element
 	}
 	ssw.menuWindow.Dirty = true
 
-	if channel.IsPrivate {
+	if (channel.Type == discordgo.ChannelTypeDM || channel.Type == discordgo.ChannelTypeGroupDM) {
 		all := true
 		ssw.menuWindow.RunFunc(func(item *ui.MenuItem) bool {
 			cast, ok := item.UserData.(*discordgo.Channel)
-			if ok && cast.IsPrivate {
+			if ok && (cast.Type == discordgo.ChannelTypeDM || cast.Type == discordgo.ChannelTypeGroupDM) {
 				if !item.Marked {
 					all = false
 					return false
@@ -273,7 +273,7 @@ func (ssw *ServerSelectWindow) ToggleDirectMessages() {
 
 	ssw.menuWindow.RunFunc(func(item *ui.MenuItem) bool {
 		cast, ok := item.UserData.(*discordgo.Channel)
-		if ok && cast.IsPrivate {
+		if ok && (cast.Type == discordgo.ChannelTypeDM || cast.Type == discordgo.ChannelTypeGroupDM) {
 			item.Marked = toggleTo
 			if !toggleTo {
 				ssw.messageView.RemoveChannel(cast.ID)

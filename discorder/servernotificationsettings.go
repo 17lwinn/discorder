@@ -81,7 +81,7 @@ func (s *ServerNotificationSettingsCommand) GetArgs(curArgs Arguments) []*Argume
 		}
 
 		for _, channel := range guild.Channels {
-			if channel.Type != "text" {
+			if channel.Type != discordgo.ChannelTypeGuildText {
 				override := &discordgo.UserGuildSettingsChannelOverride{
 					MessageNotifications: MessageNotificationsServer,
 					ChannelID:            channel.ID,
@@ -117,7 +117,7 @@ func (s *ServerNotificationSettingsCommand) GetArgs(curArgs Arguments) []*Argume
 
 	// Channel overrides
 	for _, channel := range guild.Channels {
-		if channel.Type != "text" {
+		if channel.Type != discordgo.ChannelTypeGuildText {
 			continue
 		}
 		var channelOverride *discordgo.UserGuildSettingsChannelOverride

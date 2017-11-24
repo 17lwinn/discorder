@@ -18,8 +18,7 @@ func (app *App) GetNotificationSettingsForChannel(channelId string) *ChannelNoti
 		log.Println("Error getting channel from state", err)
 		return &ChannelNotificationSettings{}
 	}
-
-	if channel.IsPrivate {
+	if (channel.Type == discordgo.ChannelTypeDM || channel.Type == discordgo.ChannelTypeGroupDM) {
 		return &ChannelNotificationSettings{Notifications: MessageNotificationsAll}
 	}
 
@@ -109,9 +108,9 @@ type ChannelNotificationSettings struct {
 }
 
 func GetChannelNameOrRecipient(channel *discordgo.Channel) string {
-	if channel.IsPrivate {
-		if channel.Recipient != nil {
-			return channel.Recipient.Username
+	if (channel.Type == discordgo.ChannelTypeDM || channel.Type == discordgo.ChannelTypeGroupDM) {
+		if channel.Recipients != nil {
+			return channel.Recipients[0].Username
 		} else {
 			return "Recipient is nil!?"
 		}

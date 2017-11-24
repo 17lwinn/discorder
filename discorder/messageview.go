@@ -139,7 +139,7 @@ func (mv *MessageView) Select() {
 		return
 	}
 
-	if !channel.IsPrivate {
+	if !(channel.Type == discordgo.ChannelTypeDM || channel.Type == discordgo.ChannelTypeGroupDM) {
 		presetArgs["server"] = channel.GuildID
 	}
 
@@ -321,10 +321,10 @@ func (mv *MessageView) CreateText(displayMessage *DisplayMessage, rect common.Re
 	channel, err := mv.App.session.State.Channel(msg.ChannelID)
 	var guild *discordgo.Guild
 	if err == nil {
-		isPrivate = channel.IsPrivate
+		isPrivate = (channel.Type == discordgo.ChannelTypeDM || channel.Type == discordgo.ChannelTypeGroupDM)
 
-		if channel.IsPrivate {
-			channelName = channel.Recipient.Username + "#" + channel.Recipient.Discriminator
+		if isPrivate {
+			channelName = channel.Recipients[0].Username + "#" + channel.Recipients[0].Discriminator
 			guildName = "DM"
 		} else {
 			channelName = "#" + channel.Name
@@ -454,7 +454,7 @@ func (mv *MessageView) BuildDisplayMessages(size int) {
 			state.RUnlock()
 			channel, err := state.Channel(listeningChannelId)
 			state.RLock()
-			if err != nil || (channel.IsPrivate && mv.ShowAllPrivate) {
+			if err != nil || ((channel.Type == discordgo.ChannelTypeDM || channel.Type == discordgo.ChannelTypeGroupDM) && mv.ShowAllPrivate) {
 				continue
 			}
 

@@ -313,7 +313,7 @@ var SimpleCommands = []Command{
 			state := app.session.State
 			state.RLock()
 			for _, v := range state.PrivateChannels {
-				if v.Recipient.ID == userId {
+				if v.Recipients[0].ID == userId {
 					tab.MessageView.AddChannel(v.ID)
 					tab.SendChannel = v.ID
 					state.RUnlock()

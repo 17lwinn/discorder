@@ -56,8 +56,8 @@ func (nm *NotificationsManager) Update() {
 				log.Println("Error getting channel:", err)
 				continue
 			}
-			if channel.IsPrivate {
-				str += fmt.Sprintf("@%s: %d, ", channel.Recipient.Username, v.MentionCount)
+			if (channel.Type == discordgo.ChannelTypeDM || channel.Type == discordgo.ChannelTypeGroupDM) {
+				str += fmt.Sprintf("@%s: %d, ", channel.Recipients[0].Username, v.MentionCount)
 				continue
 			}
 
