@@ -175,7 +175,7 @@ func (v *ViewManager) Update() {
 
 		if channel != nil && err == nil {
 			name = GetChannelNameOrRecipient(channel)
-			if !channel.IsPrivate {
+			if !(channel.Type == discordgo.ChannelTypeDM || channel.Type == discordgo.ChannelTypeGroupDM) {
 				guild, err := v.App.session.State.Guild(channel.GuildID)
 				if err == nil {
 					preStr += guild.Name + "/"
@@ -366,7 +366,7 @@ func (v *ViewManager) HandleMessageCreate(m *discordgo.Message) {
 	isPrivate := false
 	channel, err := v.App.session.State.Channel(m.ChannelID)
 	if err == nil {
-		if channel.IsPrivate {
+		if (channel.Type == discordgo.ChannelTypeDM || channel.Type == discordgo.ChannelTypeGroupDM) {
 			mentioned = true
 			isPrivate = true
 		}

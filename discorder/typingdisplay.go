@@ -3,6 +3,7 @@ package discorder
 import (
 	"github.com/jonas747/discorder/common"
 	"github.com/jonas747/discorder/ui"
+	"github.com/jonas747/discordgo"
 )
 
 // Shows who's typing
@@ -70,14 +71,14 @@ func (t *TypingDisplay) Update() {
 			if err != nil {
 				continue
 			}
-			if !channel.IsPrivate {
+			if !(channel.Type == discordgo.ChannelTypeDM || channel.Type == discordgo.ChannelTypeGroupDM) {
 				member, err := t.App.session.State.Member(channel.GuildID, v.UserID)
 				if err != nil {
 					continue
 				}
 				typingStr += "#" + GetChannelNameOrRecipient(channel) + ":" + member.User.Username + ", "
 			} else {
-				typingStr += "#DM:" + channel.Recipient.Username + ", "
+				typingStr += "#DM:" + channel.Recipients[0].Username + ", "
 			}
 		}
 		// Remove trailing ","
