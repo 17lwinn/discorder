@@ -4,7 +4,7 @@
 
 ## !Discord does not support custom clients!
 
-Discord is very against custom clients, and lately i've heard they're cracking more down on the "selfbots" and yeah, **Using this may get you banned from discord, especially avoid the email/password login. If you dont like this you should voice your opinion with discord**. Nothing else that can be done, as a work around you can create a bot account to use as a normal account...
+Discord is very against custom clients, and lately i've heard they're cracking more down on the "selfbots" and yeah, **Using this may get you banned from discord, especially avoid the email/password login. If you dont like this you should voice your opinion with discord**. As a work around you can create a bot account to use as a normal account. This is also one of the main reasons i stopped development.
 
 ### Information
 
