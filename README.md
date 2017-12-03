@@ -2,6 +2,12 @@
 
 ### I'm not actively developing this anymore, so don't expect any new features anytime soon
 
+## !Discord does not support custom clients!
+
+Discord is very against custom clients, and lately i've heard they're cracking more down on the "selfbots" and yeah, **Using this may get you banned from discord, especially avoid the email/password login. If you dont like this you should voice your opinion with discord**. Nothing else that can be done, as a work around you can create a bot account to use as a normal account...
+
+### Information
+
 ![Screenshot](https://dl.dropboxusercontent.com/u/17487167/screenshots/1476387883.png)
 
 Discorder is an interactive command line Discord client.
